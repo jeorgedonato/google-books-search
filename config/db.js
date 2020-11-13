@@ -4,7 +4,7 @@ const config = require('config');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googleBooks", {
+    await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,

@@ -1,0 +1,28 @@
+.search-area{
+  border: gray 2px solid;
+  max-height: 100%;
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.search-area span{
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.search-area input{
+  width: 60%;
+  border-radius: 5px;
+  border: gray 2px solid;
+  margin-right: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.search-area button{
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(216, 230, 238);
+}

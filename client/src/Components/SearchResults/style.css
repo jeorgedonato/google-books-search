@@ -1,0 +1,64 @@
+.search-results{
+  border: gray 2px solid;
+  max-height: 100%;
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.search-result-bar{
+  position: relative;
+  width: 100%;
+  border: 2px gray solid;
+  height: 300px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.search-title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.search-author{
+  font-size: 1rem;
+}
+
+.search-img{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 150px;
+  height: 200px;
+}
+
+.search-desc{
+  position: absolute;
+  top: 80px;
+  left: 170px;
+  max-height: 70%;
+ /* overflow-y: scroll; */
+ overflow: hidden;
+}
+
+.search-buttons{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.search-buttons a{
+  margin-left: 5px;
+  border: gray 2px solid;
+  padding: 2px;
+  color: white;
+  background-color: gray;
+  text-decoration: none;
+}
+
+.search-buttons a:hover{
+  color: white;
+  text-decoration: none;
+}
+

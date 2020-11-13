@@ -11,11 +11,7 @@ app.use(express.json({ extended: false }));
 
 
 //Define routes here
-// app.use('/api/users', require('./controllers/usersController'));
-// app.use('/api/auth', require('./controllers/authController'));
-// app.use('/api/income', require('./controllers/incomeController'));
-// app.use('/api/categories', require('./controllers/categoriesController'));
-// app.use('/api/expense', require('./controllers/expenseController'));
+app.use('/api/books', require('./controllers/book'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
