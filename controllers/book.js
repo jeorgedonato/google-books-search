@@ -13,9 +13,20 @@ router.get('/', async (req ,res) => {
 
 router.post('/', async (req,res) => {
   try {
-    // const {}
-  } catch (error) {
-    
+    const {title,authors,image,description,link} = req.body;
+
+    const newBook = new db.Book({
+      title,
+      authors : authors === "No Author Provided" ? [""] : authors,
+      image,
+      description,
+      link
+    });
+
+    const result= await newBook.save();
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

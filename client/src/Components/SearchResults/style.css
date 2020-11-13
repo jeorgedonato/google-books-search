@@ -62,3 +62,15 @@
   text-decoration: none;
 }
 
+.no-result{
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: rgb(60, 107, 168);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+

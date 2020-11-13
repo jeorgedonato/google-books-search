@@ -5,23 +5,25 @@ import SearchResults from '../SearchResults';
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [bookResult, setBookResult] = useState([]);
+  const [bookResult, setBookResult] = useState(null);
 
   const handleInputChange = e => {
     setSearchInput(e.target.value)
   }
 
   const apiSearch = async () => {
+    
     try {
       if(searchInput){
-      const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=${process.env.REACT_APP_API_KEY}`);
-        if(data){
-          setBookResult(data.items);
-          console.log(bookResult)
+      const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=${process.env.REACT_APP_API_KEY}`);
+      // console.log(res)
+        if(res.data.hasOwnProperty("items")){
+          setBookResult(res.data.items);
+          // console.log(bookResult)
+        }else{
+          setBookResult([]);
         }
       }
-      
-      
     } catch (error) {
       console.log(error)
     }
@@ -29,12 +31,12 @@ const Search = () => {
 
   const handleSearch = async e => {
     e.preventDefault();
-    apiSearch()
+    apiSearch();
   };
 
   const handleKeyPress = e =>{
     if(e.keyCode === 13){
-        apiSearch()
+        apiSearch();
     }
    }
 
@@ -46,7 +48,7 @@ const Search = () => {
         <input type="text" name="book-search" value={searchInput} onKeyDown={handleKeyPress} onChange={handleInputChange} />
         <button onClick={handleSearch}>Search</button>
       </div>
-      <SearchResults books={bookResult} />
+     {bookResult ? <SearchResults books={bookResult} /> : ""} 
     </section>
     </>
   );

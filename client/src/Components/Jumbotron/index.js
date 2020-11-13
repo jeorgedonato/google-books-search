@@ -6,7 +6,7 @@ const Jumbotron = () => {
     <>
       <div className="jumbotron">
         <h2>Google Books Search</h2>
-        <p>Save search books from the Internet</p>
+        <p>Search and Save books from the Internet</p>
       </div>
     </>
   );

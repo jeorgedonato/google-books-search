@@ -1,0 +1,8 @@
+.saved-results{
+  border: gray 2px solid;
+  max-height: 100%;
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+  margin-top: 10px;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from './Components/Navbar';
 import Search from './Components/Search';
+import Saved from './Components/Saved';
 import Jumbotron from './Components/Jumbotron';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -26,7 +27,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Search} />
-            <Route exact path="/saved" />
+            <Route exact path="/saved" component={Saved} />
           </Switch>
         </Router>
       </Container>
