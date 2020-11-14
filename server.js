@@ -32,13 +32,13 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 
-// io.on("connection", (socket) => {
-//   console.log("New client connected");
-//   socket.on("disconnect", () => {
-//     console.log("Client disconnected");
-//   });
-//   // socket.emit("to_react","lez do diz");
-// });
+io.sockets.on('connection', function(socket) { 
+  console.log("New client connected");
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+  // socket.emit("to_react","lez do diz");
+});
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
