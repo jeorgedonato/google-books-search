@@ -1,27 +1,42 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import './style.css';
 import axios from 'axios';
-import SavedResults from '../SavedResults'
-
+import SavedResults from '../SavedResults';
+import SavedContext from '../SavedContext';
 
 const Saved = () => {
+  // const isDeleted = useContext(SavedContext);
+  const [bookResult, setBookResult] = useState([]);
+  const fetchData = async () => {
+      const {data} = await axios.get('/api/books');
+      // if(bookResult){
+      setBookResult(data);
+      // }
+  };
 
-  const [bookResult, setBookResult] = useState([])
+  //  const handleDelete = async id => {
+  //   // e.preventDefault();
+  //   // const id = e.target.dataset.id;
+  //   await axios.delete(`/api/books/${id}`);
+  //   fetchData()
+  // };
+
+  const [handleDelete,setHandleDelete] = useState({
+    deleteBtn : async id => { await axios.delete(`/api/books/${id}`);  fetchData()}
+  })
 
   useEffect(() => {
-    const fetchData = async () => {
-      const {data} = await axios.get('/api/books');
-      setBookResult(data);
-    };
-
+    // console.log(isDeleted)
     fetchData();
-  },[bookResult]);
-  // console.log(bookResult)
+  },[]);
+
   return (
     <>
-      <section>
-        {bookResult ? <SavedResults books={bookResult} /> : ""} 
-      </section>
+    <SavedContext.Provider value={handleDelete}>
+        <section>
+          {bookResult ? <SavedResults books={bookResult} /> : ""} 
+        </section>
+    </SavedContext.Provider>
     </>
   )
 };

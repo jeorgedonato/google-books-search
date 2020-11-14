@@ -6,3 +6,17 @@
   border-radius: 5px;
   margin-top: 10px;
 }
+
+.search-result-bar button{
+  margin-left: 5px;
+  border: gray 2px solid;
+  padding: 1px;
+  color: white;
+  background-color: gray;
+  text-decoration: none;
+}
+
+.search-result-bar button:focus{
+  outline: none;
+}
+

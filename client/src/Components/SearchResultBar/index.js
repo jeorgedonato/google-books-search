@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import socketIOClient from "socket.io-client";
+import {toastr} from 'react-redux-toastr'
+const socket = socketIOClient(`http://localhost:3000/`);
+
 
 const SearchResultBar = ({ book: { volumeInfo }, keyUni }) => {
   const [bookInfo, setBookInfo] = useState({
@@ -17,13 +21,22 @@ const SearchResultBar = ({ book: { volumeInfo }, keyUni }) => {
     const description = volumeInfo.description ? volumeInfo.description : "No Description Provided";
     const link = volumeInfo.infoLink;
     setBookInfo({ ...bookInfo, title, authors, image, description, link });
+    // sendSocket();
   }, [volumeInfo]);
-
-  const handleClickSave = async e => {
+  
+  const handleClickSave = async e => { 
     e.preventDefault();
-    await axios.post('/api/books', bookInfo);
+    const res = await axios.post('/api/books', bookInfo);
+    
     e.target.style.display = "none";
+      if(res){
+        // console.log(store)
+      socket.on("bookSaved" , data => {
+        toastr.success('Book Saved', `${data} has been added to the Database`);
+      }); 
+    }
   };
+
   // console.log(bookInfo)
   return (
     <>

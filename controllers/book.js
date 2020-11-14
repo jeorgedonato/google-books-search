@@ -22,9 +22,12 @@ router.post('/', async (req,res) => {
       description,
       link
     });
-
-    const result= await newBook.save();
-    res.status(200).json(result);
+    
+    const result = await newBook.save();
+    // console.log(result)
+    res.io.emit("bookSaved", result.title);
+    res.send('Book Saved')
+    // res.status(200).json(result);
   } catch (err) {
     res.status(400).json(err);
   }
