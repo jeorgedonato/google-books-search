@@ -6,7 +6,7 @@ import SavedContext from "../SavedContext";
 import { toastr } from "react-redux-toastr";
 import socketIOClient from "socket.io-client";
 const socket = socketIOClient(
-  `https://project-chat-application.herokuapp.com/`
+  `https://books-search0.herokuapp.com/`
 );
 
 const Saved = () => {

@@ -3,7 +3,7 @@ import axios from "axios";
 import socketIOClient from "socket.io-client";
 import { toastr } from "react-redux-toastr";
 const socket = socketIOClient(
-  `https://project-chat-application.herokuapp.com/`
+  `https://books-search0.herokuapp.com/`
 );
 
 const SearchResultBar = ({ book: { volumeInfo }, keyUni }) => {
