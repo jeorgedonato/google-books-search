@@ -35,8 +35,9 @@ router.post('/', async (req,res) => {
 
 router.delete('/:id', async (req,res) => {
   try {
-    await db.Book.deleteOne({ _id : req.params.id});
-    res.status(200).json("Saved Book deleted!");
+    const result = await db.Book.deleteOne({ _id : req.params.id});
+    res.io.emit("bookDeleted", result.title);
+    res.send('Book Deleted')
   } catch (err) {
     res.status(400).json(err);
   }
